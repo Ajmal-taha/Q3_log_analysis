@@ -1,4 +1,9 @@
-FILE_PATH = "document.txt"
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+file_path = os.getenv("FILE_PATH")
 
 user_freq = {}
 action_freq = {}
@@ -8,7 +13,7 @@ max_user_count = 0
 max_action = ""
 max_action_count = 0
 
-with open(FILE_PATH, "r") as f:
+with open(file_path, "r") as f:
     line = f.readline()
     while(line):
         line = line.strip()
@@ -40,4 +45,4 @@ with open(FILE_PATH, "r") as f:
 
 # most active user
 print(f"user: {max_user}, count:{max_user_count}")
-print(f"user: {max_action}, count:{max_action_count}")
+print(f"action: {max_action}, count:{max_action_count}")
